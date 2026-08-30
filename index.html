@@ -44,16 +44,11 @@
       position: relative;
 
       width: 100%;
-
       min-height: 100vh;
       min-height: 100dvh;
 
       display: grid;
-
-      grid-template-rows:
-        auto
-        1fr
-        auto;
+      grid-template-rows: auto 1fr auto;
 
       overflow: hidden;
 
@@ -63,7 +58,6 @@
         86px;
 
       background-image: url("./sfondo-beach.png");
-
       background-position: center center;
       background-repeat: no-repeat;
       background-size: cover;
@@ -76,26 +70,18 @@
 
     .brand {
       position: relative;
-
       justify-self: center;
 
       width: min(61vw, 335px);
 
       z-index: 2;
-
       isolation: isolate;
     }
-
-    /*
-      Bagliore delicato dietro il logo.
-      Non modifica il file.
-    */
 
     .brand::before {
       content: "";
 
       position: absolute;
-
       inset: 15% 10%;
 
       z-index: -1;
@@ -113,20 +99,11 @@
       filter: blur(22px);
     }
 
-
     .logo {
       display: block;
 
       width: 100%;
       height: auto;
-
-      /*
-        DISSOLVENZA DEI BORDI.
-
-        Il centro resta perfettamente visibile,
-        mentre i bordi del PNG vengono gradualmente
-        resi trasparenti.
-      */
 
       -webkit-mask-image:
         radial-gradient(
@@ -148,18 +125,10 @@
           transparent 100%
         );
 
-      /*
-        Ombra morbida.
-      */
-
       filter:
         drop-shadow(
           0 10px 22px rgba(0, 0, 0, 0.22)
         );
-
-      /*
-        Il logo resta cromaticamente originale.
-      */
 
       mix-blend-mode: normal;
     }
@@ -179,10 +148,6 @@
 
       width: min(100%, 780px);
 
-      /*
-        Alziamo leggermente tutto il blocco centrale.
-      */
-
       margin-top: -5vh;
 
       text-align: center;
@@ -190,7 +155,8 @@
 
 
     /* =========================================================
-       "LA TUA OPINIONE CONTA"
+       LA TUA OPINIONE CONTA
+       MODIFICATO: PIÙ GRANDE E PIÙ IN ALTO
        ========================================================= */
 
     .eyebrow {
@@ -199,40 +165,48 @@
       align-items: center;
       justify-content: center;
 
-      gap: 12px;
+      gap: 14px;
 
       /*
-        Più spazio rispetto al box sottostante.
+        Spostamento verso l'alto rispetto
+        al riquadro del messaggio.
       */
+      transform: translateY(-24px);
 
-      margin-bottom: 20px;
+      /*
+        Compensiamo lo spostamento mantenendo
+        una distanza elegante dal box.
+      */
+      margin-bottom: 2px;
 
       color: #ffffff;
 
       /*
-        Testo aumentato.
+        Testo sensibilmente più grande.
       */
-
-      font-size: 0.92rem;
+      font-size: 1.12rem;
 
       font-weight: 800;
 
-      letter-spacing: 0.20em;
+      letter-spacing: 0.18em;
 
       text-transform: uppercase;
 
-      text-shadow:
-        0 2px 8px rgba(0, 0, 0, 0.78),
-        0 0 16px rgba(0, 0, 0, 0.22);
-    }
+      white-space: nowrap;
 
+      text-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.85),
+        0 0 16px rgba(0, 0, 0, 0.32);
+    }
 
     .eyebrow::before,
     .eyebrow::after {
       content: "";
 
       width: 48px;
-      height: 1px;
+      height: 2px;
+
+      flex-shrink: 1;
 
       background:
         linear-gradient(
@@ -241,7 +215,6 @@
           rgba(255, 255, 255, 0.95)
         );
     }
-
 
     .eyebrow::after {
       transform: scaleX(-1);
@@ -265,7 +238,6 @@
 
       overflow: hidden;
     }
-
 
     .messaggio {
       position: relative;
@@ -301,9 +273,7 @@
       justify-self: center;
 
       display: flex;
-
       flex-direction: column;
-
       align-items: center;
 
       gap: 19px;
@@ -314,7 +284,7 @@
 
 
     /* =========================================================
-       PULSANTE GOOGLE
+       PULSANTE
        ========================================================= */
 
     .bottone-google {
@@ -327,7 +297,6 @@
         22px 42px;
 
       border: none;
-
       border-radius: 16px;
 
       background: #ffffff;
@@ -346,12 +315,10 @@
       letter-spacing: 0.02em;
 
       text-align: center;
-
       text-decoration: none;
 
       -webkit-tap-highlight-color: transparent;
     }
-
 
     .bottone-google:active {
       transform: scale(0.98);
@@ -393,17 +360,9 @@
       right:
         clamp(20px, 6vw, 86px);
 
-      /*
-        Footer alzato rispetto a prima.
-      */
-
       bottom: 30px;
 
       color: rgba(255, 255, 255, 0.92);
-
-      /*
-        Dimensione aumentata.
-      */
 
       font-size: 1rem;
 
@@ -416,7 +375,6 @@
       text-shadow:
         0 2px 8px rgba(0, 0, 0, 0.85);
     }
-
 
     footer strong {
       color: #ffffff;
@@ -444,53 +402,53 @@
           18px
           max(82px, env(safe-area-inset-bottom));
 
-        background-position:
-          center center;
+        background-position: center center;
       }
-
 
       .brand {
         width:
           min(61vw, 285px);
       }
 
-
       .centro {
         width: 100%;
-
-        /*
-          Più alto rispetto alla versione precedente.
-        */
-
         margin-top: -5vh;
       }
 
+      /*
+        MODIFICA PRINCIPALE MOBILE
+      */
 
       .eyebrow {
-        margin-bottom: 18px;
+        /*
+          Alzato di 32px rispetto
+          alla posizione naturale.
+        */
+        transform: translateY(-32px);
 
-        gap: 9px;
+        margin-bottom: -4px;
+
+        gap: 10px;
 
         /*
-          Grandezza aumentata su mobile.
+          Più grande della versione precedente.
         */
+        font-size: 1rem;
 
-        font-size: 0.82rem;
+        font-weight: 800;
 
-        letter-spacing: 0.16em;
+        letter-spacing: 0.13em;
       }
-
 
       .eyebrow::before,
       .eyebrow::after {
-        width: 35px;
+        width: 38px;
+        height: 2px;
       }
-
 
       .messaggio-box {
         border-radius: 21px;
       }
-
 
       .messaggio {
         padding:
@@ -506,13 +464,11 @@
         line-height: 1.32;
       }
 
-
       .recensione {
         gap: 16px;
 
         margin-bottom: 44px;
       }
-
 
       .bottone-google {
         width:
@@ -523,10 +479,8 @@
         padding:
           19px 24px;
 
-        font-size:
-          1.34rem;
+        font-size: 1.34rem;
       }
-
 
       .stelle {
         font-size:
@@ -537,13 +491,8 @@
           );
       }
 
-
       footer {
         right: 18px;
-
-        /*
-          Più alto.
-        */
 
         bottom:
           max(
@@ -551,13 +500,8 @@
             env(safe-area-inset-bottom)
           );
 
-        /*
-          Dimensione aumentata.
-        */
-
         font-size: 0.90rem;
       }
-
 
       footer strong {
         font-size: 1rem;
@@ -580,24 +524,24 @@
         padding-top: 12px;
       }
 
-
       .brand {
         width:
           min(48vw, 220px);
       }
 
-
       .centro {
         margin-top: -2vh;
       }
 
-
       .eyebrow {
-        margin-bottom: 10px;
+        transform: translateY(-20px);
 
-        font-size: 0.76rem;
+        margin-bottom: 0;
+
+        font-size: 0.88rem;
+
+        letter-spacing: 0.11em;
       }
-
 
       .messaggio {
         padding: 16px 18px;
@@ -605,13 +549,11 @@
         font-size: 1.08rem;
       }
 
-
       .recensione {
         gap: 10px;
 
         margin-bottom: 35px;
       }
-
 
       .bottone-google {
         padding: 15px 26px;
@@ -619,18 +561,15 @@
         font-size: 1.22rem;
       }
 
-
       .stelle {
         font-size: 2rem;
       }
-
 
       footer {
         bottom: 22px;
 
         font-size: 0.82rem;
       }
-
 
       footer strong {
         font-size: 0.90rem;
@@ -643,7 +582,6 @@
 
 
 <body>
-
 
   <script>
 
@@ -663,12 +601,10 @@
   </script>
 
 
-
   <main
     class="pagina"
     id="pagina"
   >
-
 
     <!-- LOGO -->
 
@@ -684,39 +620,29 @@
     </div>
 
 
-
     <!-- MESSAGGIO CENTRALE -->
 
     <section class="centro">
 
-
       <div class="eyebrow">
-
         La tua opinione conta
-
       </div>
-
 
       <div class="messaggio-box">
 
         <p class="messaggio">
-
           La tua esperienza per noi conta,
           lascia una recensione.
-
         </p>
 
       </div>
 
-
     </section>
-
 
 
     <!-- RECENSIONE -->
 
     <section class="recensione">
-
 
       <a
         id="bottone-google"
@@ -725,41 +651,26 @@
         target="_blank"
         rel="noopener noreferrer"
       >
-
         Recensione Google
-
       </a>
-
 
       <div
         class="stelle"
         aria-label="Cinque stelle"
       >
-
         ★★★★★
-
       </div>
 
-
     </section>
-
 
 
     <!-- FOOTER -->
 
     <footer>
-
-      Powered by
-
-      <strong>
-        Tapreputa
-      </strong>
-
+      Powered by <strong>Tapreputa</strong>
     </footer>
 
-
   </main>
-
 
 
   <script>
@@ -768,30 +679,24 @@
       configurazione.nomeAttivita +
       " | Recensioni";
 
-
     const logo =
       document.getElementById("logo");
-
 
     logo.src =
       configurazione.logo;
 
-
     logo.alt =
       configurazione.nomeAttivita;
-
 
     const bottoneGoogle =
       document.getElementById(
         "bottone-google"
       );
 
-
     bottoneGoogle.href =
       configurazione.linkRecensioni;
 
   </script>
-
 
 </body>
 
