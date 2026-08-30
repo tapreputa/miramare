@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>251008571</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+&lt;!DOCTYPE html&gt;
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
+  >
+<title>
+Pagina recensioni
+</title>
+<style>
+
+    :root {
+      --oro: #ffc107;
+      --testo: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 100%;
+      min-height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      overflow-x: hidden;
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      color: var(--testo);
+    }
+
+
+    /* =========================================================
+       PAGINA PRINCIPALE
+       ========================================================= */
+
+    .pagina {
+
+      position: relative;
+
+      width: 100%;
+      min-height: 100vh;
+      min-height: 100dvh;
+
+      display: grid;
+
+      grid-template-rows:
+        auto
+        1fr
+        auto;
+
+      overflow: hidden;
+
+      padding:
+        22px
+        clamp(20px, 6vw, 86px)
+        86px;
+
+      /*
+        Lo sfondo rimane completamente originale.
+        Nessun filtro.
+        Nessun gradiente.
+        Nessuna sovrapposizione.
+      */
+
+      background-image: url("./sfondo-beach.png");
+
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+
+    /* =========================================================
+       LOGO
+       ========================================================= */
+
+    .brand {
+
+      position: relative;
+
+      justify-self: center;
+
+      width: min(61vw, 335px);
+
+      z-index: 2;
+    }
+
+
+    .logo {
+
+      display: block;
+
+      width: 100%;
+      height: auto;
+
+      /*
+        Nessuna alterazione del logo.
+      */
+
+      filter: none;
+      mix-blend-mode: normal;
+    }
+
+
+    /* =========================================================
+       BLOCCO CENTRALE
+       ========================================================= */
+
+    .centro {
+
+      position: relative;
+
+      z-index: 2;
+
+      align-self: center;
+      justify-self: center;
+
+      width: min(100%, 780px);
+
+      margin-top: -2vh;
+
+      text-align: center;
+    }
+
+
+    /* =========================================================
+       TESTO SUPERIORE
+       ========================================================= */
+
+    .eyebrow {
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      gap: 12px;
+
+      margin-bottom: 18px;
+
+      color: #ffffff;
+
+      font-size: 0.72rem;
+
+      font-weight: 700;
+
+      letter-spacing: 0.22em;
+
+      text-transform: uppercase;
+
+      text-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.65);
+    }
+
+
+    .eyebrow::before,
+    .eyebrow::after {
+
+      content: "";
+
+      width: 44px;
+      height: 1px;
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          rgba(255,255,255,0.95)
+        );
+    }
+
+
+    .eyebrow::after {
+      transform: scaleX(-1);
+    }
+
+
+    /* =========================================================
+       MESSAGGIO
+       ========================================================= */
+
+    .messaggio-box {
+
+      position: relative;
+
+      border-radius: 25px;
+
+      /*
+        Unico contenitore necessario per rendere
+        leggibile il testo sopra la fotografia.
+      */
+
+      background:
+        rgba(0, 0, 0, 0.46);
+
+      box-shadow:
+        0 14px 34px rgba(0, 0, 0, 0.26);
+
+      overflow: hidden;
+    }
+
+
+    .messaggio {
+
+      position: relative;
+
+      margin: 0;
+
+      padding:
+        clamp(23px, 3.3vw, 37px);
+
+      color: #ffffff;
+
+      font-size:
+        clamp(1.3rem, 3.2vw, 2.15rem);
+
+      line-height: 1.32;
+
+      letter-spacing: 0.01em;
+
+      text-shadow:
+        0 2px 7px rgba(0,0,0,0.5);
+    }
+
+
+    /* =========================================================
+       RECENSIONE
+       ========================================================= */
+
+    .recensione {
+
+      position: relative;
+
+      z-index: 2;
+
+      justify-self: center;
+
+      display: flex;
+
+      flex-direction: column;
+
+      align-items: center;
+
+      gap: 19px;
+
+      margin-bottom:
+        clamp(44px, 7vh, 78px);
+    }
+
+
+    /* =========================================================
+       PULSANTE GOOGLE
+       ========================================================= */
+
+    .bottone-google {
+
+      position: relative;
+
+      min-width:
+        min(82vw, 312px);
+
+      padding:
+        22px 62px;
+
+      border: none;
+
+      border-radius: 16px;
+
+      background: #ffffff;
+
+      color: #16191e;
+
+      box-shadow:
+        0 18px 40px rgba(0, 0, 0, 0.35),
+        0 0 0 1px rgba(255, 255, 255, 0.72);
+
+      font-size:
+        clamp(1.4rem, 3vw, 1.7rem);
+
+      font-weight: 800;
+
+      letter-spacing: 0.03em;
+
+      text-align: center;
+
+      text-decoration: none;
+
+      -webkit-tap-highlight-color: transparent;
+    }
+
+
+    .bottone-google:active {
+
+      transform:
+        scale(0.98);
+    }
+
+
+    /* =========================================================
+       STELLE
+       ========================================================= */
+
+    .stelle {
+
+      position: relative;
+
+      color: var(--oro);
+
+      font-size:
+        clamp(2.1rem, 5vw, 2.8rem);
+
+      letter-spacing: 0.14em;
+
+      line-height: 1;
+
+      text-shadow:
+
+        0 0 8px
+        rgba(255, 193, 7, 0.70),
+
+        0 0 22px
+        rgba(255, 193, 7, 0.34),
+
+        0 4px 10px
+        rgba(0, 0, 0, 0.40);
+    }
+
+
+    /* =========================================================
+       FOOTER
+       ========================================================= */
+
+    footer {
+
+      position: absolute;
+
+      z-index: 2;
+
+      right:
+        clamp(20px, 6vw, 86px);
+
+      bottom: 18px;
+
+      color: rgba(255,255,255,0.82);
+
+      font-size: 0.92rem;
+
+      letter-spacing: 0.04em;
+
+      text-align: right;
+
+      text-shadow:
+        0 2px 6px rgba(0,0,0,0.75);
+    }
+
+
+    footer strong {
+
+      color: #ffffff;
+
+      font-size: 1rem;
+
+      font-weight: 700;
+    }
+
+
+    /* =========================================================
+       OTTIMIZZAZIONE SMARTPHONE VERTICALE
+       ========================================================= */
+
+    @media
+    (max-width: 600px)
+    and
+    (orientation: portrait) {
+
+      .pagina {
+
+        /*
+          Manteniamo l'immagine verticale a pieno schermo.
+        */
+
+        min-height: 100svh;
+
+        padding:
+          max(18px, env(safe-area-inset-top))
+          18px
+          max(76px, env(safe-area-inset-bottom));
+
+        background-position:
+          center center;
+      }
+
+
+      .brand {
+
+        width:
+          min(61vw, 285px);
+      }
+
+
+      .centro {
+
+        width: 100%;
+
+        margin-top:
+          -1vh;
+      }
+
+
+      .eyebrow {
+
+        margin-bottom:
+          14px;
+
+        gap:
+          9px;
+
+        font-size:
+          0.68rem;
+
+        letter-spacing:
+          0.18em;
+      }
+
+
+      .eyebrow::before,
+      .eyebrow::after {
+
+        width:
+          32px;
+      }
+
+
+      .messaggio-box {
+
+        border-radius:
+          21px;
+      }
+
+
+      .messaggio {
+
+        padding:
+          21px 20px;
+
+        font-size:
+          clamp(
+            1.20rem,
+            5vw,
+            1.48rem
+          );
+
+        line-height:
+          1.32;
+      }
+
+
+      .recensione {
+
+        gap:
+          16px;
+
+        margin-bottom:
+          44px;
+      }
+
+
+      .bottone-google {
+
+        width:
+          min(82vw, 312px);
+
+        min-width: 0;
+
+        padding:
+          19px 36px;
+
+        font-size:
+          1.42rem;
+      }
+
+
+      .stelle {
+
+        font-size:
+          clamp(
+            2rem,
+            8vw,
+            2.55rem
+          );
+      }
+
+
+      footer {
+
+        right:
+          18px;
+
+        bottom:
+          max(
+            14px,
+            env(safe-area-inset-bottom)
+          );
+
+        font-size:
+          0.74rem;
+      }
+
+
+      footer strong {
+
+        font-size:
+          0.82rem;
+      }
+    }
+
+
+    /* =========================================================
+       SMARTPHONE CON SCHERMO VERTICALE BASSO
+       ========================================================= */
+
+    @media
+    (max-width: 600px)
+    and
+    (max-height: 720px)
+    and
+    (orientation: portrait) {
+
+      .pagina {
+
+        padding-top:
+          12px;
+      }
+
+
+      .brand {
+
+        width:
+          min(48vw, 220px);
+      }
+
+
+      .centro {
+
+        margin-top:
+          0;
+      }
+
+
+      .eyebrow {
+
+        margin-bottom:
+          9px;
+      }
+
+
+      .messaggio {
+
+        padding:
+          16px 18px;
+
+        font-size:
+          1.08rem;
+      }
+
+
+      .recensione {
+
+        gap:
+          10px;
+
+        margin-bottom:
+          35px;
+      }
+
+
+      .bottone-google {
+
+        padding:
+          15px 38px;
+
+        font-size:
+          1.25rem;
+      }
+
+
+      .stelle {
+
+        font-size:
+          2rem;
+      }
+    }
+
+  </style>
+</head>
+<body>
+<p><!-- =======================================================
+       CONFIGURAZIONE ATTIVITÀ
+       ======================================================= --></p>
+<script>
+
+    const configurazione = {
+
+      /*
+        Nuovo logo MIRAMARE
+      */
+
+      logo: "./logo.png",
+
+
+      /*
+        Nome attività
+      */
+
+      nomeAttivita:
+        "Miramare Sea Restaurant",
+
+
+      /*
+        Manteniamo ESATTAMENTE
+        il link Google indicato
+        nello script originale.
+      */
+
+      linkRecensioni:
+        "https://search.google.com/local/writereview?placeid=ChIJ0dDdYjPqGRMRM64sgFVBjLE"
+
+    };
+
+  </script>
+<p><!-- =======================================================
+       PAGINA
+       ======================================================= --></p>
+<main class="pagina" id="pagina">
+<pre><code>&lt;!-- LOGO --&gt;
+
+&lt;div class=&quot;brand&quot;&gt;
+
+  &lt;img
+    id=&quot;logo&quot;
+    class=&quot;logo&quot;
+    src=&quot;&quot;
+    alt=&quot;&quot;
+  &gt;
+
+&lt;/div&gt;
+
+
+
+&lt;!-- MESSAGGIO CENTRALE --&gt;
+
+&lt;section class=&quot;centro&quot;&gt;
+
+
+  &lt;div class=&quot;eyebrow&quot;&gt;
+
+    La tua opinione conta
+
+  &lt;/div&gt;
+
+
+  &lt;div class=&quot;messaggio-box&quot;&gt;
+
+    &lt;p class=&quot;messaggio&quot;&gt;
+
+      La tua esperienza per noi conta,
+      lascia una recensione.
+
+    &lt;/p&gt;
+
+  &lt;/div&gt;
+
+
+&lt;/section&gt;
+
+
+
+&lt;!-- PULSANTE RECENSIONE --&gt;
+
+&lt;section class=&quot;recensione&quot;&gt;
+
+
+  &lt;a
+    id=&quot;bottone-google&quot;
+    class=&quot;bottone-google&quot;
+    href=&quot;#&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener noreferrer&quot;
+  &gt;
+
+    Google
+
+  &lt;/a&gt;
+
+
+  &lt;div
+    class=&quot;stelle&quot;
+    aria-label=&quot;Cinque stelle&quot;
+  &gt;
+
+    ★★★★★
+
+  &lt;/div&gt;
+
+
+&lt;/section&gt;
+
+
+
+&lt;!-- FOOTER --&gt;
+
+&lt;footer&gt;
+
+  Progetto e sviluppo by
+
+  &lt;strong&gt;
+    TAPREPUTA
+  &lt;/strong&gt;
+
+&lt;/footer&gt;</code></pre>
+</main>
+<p><!-- =======================================================
+       CONFIGURAZIONE DINAMICA
+       ======================================================= --></p>
+<script>
+
+    /*
+      Titolo pagina
+    */
+
+    document.title =
+      configurazione.nomeAttivita +
+      " | Recensioni";
+
+
+    /*
+      Logo
+    */
+
+    const logo =
+      document.getElementById("logo");
+
+    logo.src =
+      configurazione.logo;
+
+    logo.alt =
+      configurazione.nomeAttivita;
+
+
+    /*
+      Link pulsante recensioni
+    */
+
+    const bottoneGoogle =
+      document.getElementById(
+        "bottone-google"
+      );
+
+    bottoneGoogle.href =
+      configurazione.linkRecensioni;
+
+  </script>
+</body>
+</html>
+</body>
+</html>
