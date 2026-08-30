@@ -36,10 +36,6 @@
       color: var(--testo);
     }
 
-    /* =========================================================
-       PAGINA PRINCIPALE
-       ========================================================= */
-
     .pagina {
       position: relative;
 
@@ -62,11 +58,6 @@
       background-repeat: no-repeat;
       background-size: cover;
     }
-
-
-    /* =========================================================
-       LOGO
-       ========================================================= */
 
     .brand {
       position: relative;
@@ -133,11 +124,6 @@
       mix-blend-mode: normal;
     }
 
-
-    /* =========================================================
-       BLOCCO CENTRALE
-       ========================================================= */
-
     .centro {
       position: relative;
 
@@ -153,12 +139,6 @@
       text-align: center;
     }
 
-
-    /* =========================================================
-       LA TUA OPINIONE CONTA
-       MODIFICATO: PIÙ GRANDE E PIÙ IN ALTO
-       ========================================================= */
-
     .eyebrow {
       display: flex;
 
@@ -167,23 +147,12 @@
 
       gap: 14px;
 
-      /*
-        Spostamento verso l'alto rispetto
-        al riquadro del messaggio.
-      */
       transform: translateY(-24px);
 
-      /*
-        Compensiamo lo spostamento mantenendo
-        una distanza elegante dal box.
-      */
       margin-bottom: 2px;
 
       color: #ffffff;
 
-      /*
-        Testo sensibilmente più grande.
-      */
       font-size: 1.12rem;
 
       font-weight: 800;
@@ -220,11 +189,6 @@
       transform: scaleX(-1);
     }
 
-
-    /* =========================================================
-       MESSAGGIO
-       ========================================================= */
-
     .messaggio-box {
       position: relative;
 
@@ -260,11 +224,6 @@
         0 2px 7px rgba(0, 0, 0, 0.5);
     }
 
-
-    /* =========================================================
-       RECENSIONE
-       ========================================================= */
-
     .recensione {
       position: relative;
 
@@ -281,11 +240,6 @@
       margin-bottom:
         clamp(44px, 7vh, 78px);
     }
-
-
-    /* =========================================================
-       PULSANTE
-       ========================================================= */
 
     .bottone-google {
       position: relative;
@@ -324,11 +278,6 @@
       transform: scale(0.98);
     }
 
-
-    /* =========================================================
-       STELLE
-       ========================================================= */
-
     .stelle {
       position: relative;
 
@@ -346,11 +295,6 @@
         0 0 22px rgba(255, 193, 7, 0.34),
         0 4px 10px rgba(0, 0, 0, 0.40);
     }
-
-
-    /* =========================================================
-       FOOTER
-       ========================================================= */
 
     footer {
       position: absolute;
@@ -384,11 +328,6 @@
       font-weight: 800;
     }
 
-
-    /* =========================================================
-       SMARTPHONE VERTICALE
-       ========================================================= */
-
     @media
     (max-width: 600px)
     and
@@ -415,24 +354,13 @@
         margin-top: -5vh;
       }
 
-      /*
-        MODIFICA PRINCIPALE MOBILE
-      */
-
       .eyebrow {
-        /*
-          Alzato di 32px rispetto
-          alla posizione naturale.
-        */
         transform: translateY(-32px);
 
         margin-bottom: -4px;
 
         gap: 10px;
 
-        /*
-          Più grande della versione precedente.
-        */
         font-size: 1rem;
 
         font-weight: 800;
@@ -508,11 +436,6 @@
       }
     }
 
-
-    /* =========================================================
-       TELEFONI CON SCHERMO PIÙ BASSO
-       ========================================================= */
-
     @media
     (max-width: 600px)
     and
@@ -580,7 +503,6 @@
 
 </head>
 
-
 <body>
 
   <script>
@@ -594,7 +516,7 @@
         "Miramare Sea Restaurant",
 
       linkRecensioni:
-        "https://search.google.com/local/writereview?placeid=ChIJ0dDdYjPqGRMRM64sgFVBjLE"
+        "https://search.google.com/local/writereview?placeid=ChIJ9f972rXrGRMRpevPbYdyOXU"
 
     };
 
@@ -605,8 +527,6 @@
     class="pagina"
     id="pagina"
   >
-
-    <!-- LOGO -->
 
     <div class="brand">
 
@@ -620,8 +540,6 @@
     </div>
 
 
-    <!-- MESSAGGIO CENTRALE -->
-
     <section class="centro">
 
       <div class="eyebrow">
@@ -631,16 +549,14 @@
       <div class="messaggio-box">
 
         <p class="messaggio">
-          La tua esperienza per noi conta,
-          lascia una recensione.
+          Il tuo feedback ci aiuta a fare sempre meglio.
+          Dici la tua! Bastano 2 secondi!
         </p>
 
       </div>
 
     </section>
 
-
-    <!-- RECENSIONE -->
 
     <section class="recensione">
 
@@ -663,8 +579,6 @@
 
     </section>
 
-
-    <!-- FOOTER -->
 
     <footer>
       Powered by <strong>Tapreputa</strong>
