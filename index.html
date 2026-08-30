@@ -241,25 +241,47 @@
         clamp(44px, 7vh, 78px);
     }
 
+
+    /* =========================================================
+       PULSANTE RECENSIONE GOOGLE - EFFETTO MARE
+       ========================================================= */
+
     .bottone-google {
       position: relative;
 
       min-width:
         min(86vw, 340px);
 
-      padding:
-        22px 42px;
+      height: 72px;
 
-      border: none;
+      padding:
+        0 42px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      overflow: hidden;
+
+      border:
+        1px solid rgba(255, 255, 255, 0.90);
+
       border-radius: 16px;
 
-      background: #ffffff;
+      background:
+        linear-gradient(
+          180deg,
+          #ffffff 0%,
+          #f4fcff 48%,
+          #dff7ff 100%
+        );
 
-      color: #16191e;
+      color: #102c3d;
 
       box-shadow:
         0 18px 40px rgba(0, 0, 0, 0.35),
-        0 0 0 1px rgba(255, 255, 255, 0.72);
+        0 0 0 1px rgba(255, 255, 255, 0.55),
+        0 0 24px rgba(42, 180, 224, 0.18);
 
       font-size:
         clamp(1.35rem, 3vw, 1.65rem);
@@ -272,11 +294,326 @@
       text-decoration: none;
 
       -webkit-tap-highlight-color: transparent;
+
+      transition:
+        transform 0.20s ease,
+        box-shadow 0.20s ease;
     }
 
-    .bottone-google:active {
-      transform: scale(0.98);
+
+    /* Prima onda */
+
+    .onda {
+      position: absolute;
+
+      z-index: 1;
+
+      left: -25%;
+      bottom: -31px;
+
+      width: 150%;
+      height: 63px;
+
+      border-radius: 44% 52% 0 0;
+
+      background:
+        rgba(31, 169, 219, 0.38);
+
+      transform-origin: center center;
+
+      animation:
+        onda-mare 5.8s ease-in-out infinite alternate;
     }
+
+
+    /* Seconda onda */
+
+    .onda-secondaria {
+      position: absolute;
+
+      z-index: 2;
+
+      left: -30%;
+      bottom: -39px;
+
+      width: 160%;
+      height: 67px;
+
+      border-radius: 54% 42% 0 0;
+
+      background:
+        rgba(0, 119, 190, 0.25);
+
+      transform-origin: center center;
+
+      animation:
+        onda-mare-secondaria
+        7.2s
+        ease-in-out
+        infinite alternate;
+    }
+
+
+    /* Riflesso del sole sull'acqua */
+
+    .riflesso-acqua {
+      position: absolute;
+
+      z-index: 3;
+
+      top: -20%;
+      left: -55%;
+
+      width: 28%;
+      height: 140%;
+
+      pointer-events: none;
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.70),
+          transparent
+        );
+
+      transform:
+        skewX(-20deg);
+
+      animation:
+        riflesso-acqua
+        4.8s
+        ease-in-out
+        infinite;
+    }
+
+
+    /* Testo sopra tutte le animazioni */
+
+    .testo-bottone {
+      position: relative;
+
+      z-index: 10;
+
+      text-shadow:
+        0 1px 1px rgba(255, 255, 255, 0.65);
+    }
+
+
+    /* =========================================================
+       BOLLE
+       ========================================================= */
+
+    .bolla {
+      position: absolute;
+
+      z-index: 4;
+
+      bottom: -15px;
+
+      display: block;
+
+      border:
+        1px solid rgba(255, 255, 255, 0.85);
+
+      border-radius: 50%;
+
+      background:
+        rgba(255, 255, 255, 0.24);
+
+      box-shadow:
+        inset 1px 1px 2px rgba(255, 255, 255, 0.65);
+
+      pointer-events: none;
+
+      opacity: 0;
+    }
+
+
+    .bolla-1 {
+      left: 13%;
+
+      width: 8px;
+      height: 8px;
+
+      animation:
+        bolla-sale
+        4.2s
+        ease-in
+        0.2s
+        infinite;
+    }
+
+
+    .bolla-2 {
+      left: 27%;
+
+      width: 5px;
+      height: 5px;
+
+      animation:
+        bolla-sale
+        5.1s
+        ease-in
+        1.8s
+        infinite;
+    }
+
+
+    .bolla-3 {
+      right: 17%;
+
+      width: 9px;
+      height: 9px;
+
+      animation:
+        bolla-sale
+        4.8s
+        ease-in
+        2.7s
+        infinite;
+    }
+
+
+    .bolla-4 {
+      right: 31%;
+
+      width: 5px;
+      height: 5px;
+
+      animation:
+        bolla-sale
+        5.5s
+        ease-in
+        3.5s
+        infinite;
+    }
+
+
+    /* =========================================================
+       ANIMAZIONI DEL PULSANTE
+       ========================================================= */
+
+    @keyframes onda-mare {
+
+      0% {
+        transform:
+          translateX(-3%)
+          translateY(0)
+          rotate(-1deg);
+      }
+
+      50% {
+        transform:
+          translateX(2%)
+          translateY(-6px)
+          rotate(1deg);
+      }
+
+      100% {
+        transform:
+          translateX(5%)
+          translateY(-2px)
+          rotate(-0.5deg);
+      }
+    }
+
+
+    @keyframes onda-mare-secondaria {
+
+      0% {
+        transform:
+          translateX(5%)
+          translateY(0)
+          rotate(1deg);
+      }
+
+      50% {
+        transform:
+          translateX(0)
+          translateY(-4px)
+          rotate(-1deg);
+      }
+
+      100% {
+        transform:
+          translateX(-5%)
+          translateY(-7px)
+          rotate(0.5deg);
+      }
+    }
+
+
+    @keyframes riflesso-acqua {
+
+      0%,
+      55% {
+        left: -55%;
+        opacity: 0;
+      }
+
+      62% {
+        opacity: 0.65;
+      }
+
+      82% {
+        left: 130%;
+        opacity: 0.35;
+      }
+
+      100% {
+        left: 130%;
+        opacity: 0;
+      }
+    }
+
+
+    @keyframes bolla-sale {
+
+      0% {
+        transform:
+          translateY(0)
+          translateX(0)
+          scale(0.6);
+
+        opacity: 0;
+      }
+
+      18% {
+        opacity: 0.75;
+      }
+
+      65% {
+        opacity: 0.50;
+      }
+
+      100% {
+        transform:
+          translateY(-76px)
+          translateX(9px)
+          scale(1.15);
+
+        opacity: 0;
+      }
+    }
+
+
+    /* Pressione su smartphone */
+
+    .bottone-google:active {
+      transform:
+        scale(0.97);
+
+      box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.30),
+        0 0 0 1px rgba(255, 255, 255, 0.70),
+        0 0 30px rgba(42, 180, 224, 0.30);
+    }
+
+
+    /* =========================================================
+       STELLE
+       ========================================================= */
 
     .stelle {
       position: relative;
@@ -296,6 +633,11 @@
         0 4px 10px rgba(0, 0, 0, 0.40);
     }
 
+
+    /* =========================================================
+       FOOTER
+       ========================================================= */
+
     footer {
       position: absolute;
 
@@ -306,7 +648,8 @@
 
       bottom: 30px;
 
-      color: rgba(255, 255, 255, 0.92);
+      color:
+        rgba(255, 255, 255, 0.92);
 
       font-size: 1rem;
 
@@ -320,6 +663,7 @@
         0 2px 8px rgba(0, 0, 0, 0.85);
     }
 
+
     footer strong {
       color: #ffffff;
 
@@ -327,6 +671,11 @@
 
       font-weight: 800;
     }
+
+
+    /* =========================================================
+       SMARTPHONE VERTICALE
+       ========================================================= */
 
     @media
     (max-width: 600px)
@@ -341,21 +690,27 @@
           18px
           max(82px, env(safe-area-inset-bottom));
 
-        background-position: center center;
+        background-position:
+          center center;
       }
+
 
       .brand {
         width:
           min(61vw, 285px);
       }
 
+
       .centro {
         width: 100%;
+
         margin-top: -5vh;
       }
 
+
       .eyebrow {
-        transform: translateY(-32px);
+        transform:
+          translateY(-32px);
 
         margin-bottom: -4px;
 
@@ -368,15 +723,18 @@
         letter-spacing: 0.13em;
       }
 
+
       .eyebrow::before,
       .eyebrow::after {
         width: 38px;
         height: 2px;
       }
 
+
       .messaggio-box {
         border-radius: 21px;
       }
+
 
       .messaggio {
         padding:
@@ -392,11 +750,13 @@
         line-height: 1.32;
       }
 
+
       .recensione {
         gap: 16px;
 
         margin-bottom: 44px;
       }
+
 
       .bottone-google {
         width:
@@ -404,11 +764,15 @@
 
         min-width: 0;
 
-        padding:
-          19px 24px;
+        height: 66px;
 
-        font-size: 1.34rem;
+        padding:
+          0 24px;
+
+        font-size:
+          1.34rem;
       }
+
 
       .stelle {
         font-size:
@@ -418,6 +782,7 @@
             2.55rem
           );
       }
+
 
       footer {
         right: 18px;
@@ -431,10 +796,16 @@
         font-size: 0.90rem;
       }
 
+
       footer strong {
         font-size: 1rem;
       }
     }
+
+
+    /* =========================================================
+       TELEFONI CON SCHERMO PIÙ BASSO
+       ========================================================= */
 
     @media
     (max-width: 600px)
@@ -447,17 +818,21 @@
         padding-top: 12px;
       }
 
+
       .brand {
         width:
           min(48vw, 220px);
       }
 
+
       .centro {
         margin-top: -2vh;
       }
 
+
       .eyebrow {
-        transform: translateY(-20px);
+        transform:
+          translateY(-20px);
 
         margin-bottom: 0;
 
@@ -466,11 +841,14 @@
         letter-spacing: 0.11em;
       }
 
+
       .messaggio {
-        padding: 16px 18px;
+        padding:
+          16px 18px;
 
         font-size: 1.08rem;
       }
+
 
       .recensione {
         gap: 10px;
@@ -478,15 +856,21 @@
         margin-bottom: 35px;
       }
 
+
       .bottone-google {
-        padding: 15px 26px;
+        height: 58px;
+
+        padding:
+          0 26px;
 
         font-size: 1.22rem;
       }
 
+
       .stelle {
         font-size: 2rem;
       }
+
 
       footer {
         bottom: 22px;
@@ -494,8 +878,26 @@
         font-size: 0.82rem;
       }
 
+
       footer strong {
         font-size: 0.90rem;
+      }
+    }
+
+
+    /* =========================================================
+       ACCESSIBILITÀ:
+       DISATTIVA LE ANIMAZIONI SE RICHIESTO DAL DISPOSITIVO
+       ========================================================= */
+
+    @media
+    (prefers-reduced-motion: reduce) {
+
+      .onda,
+      .onda-secondaria,
+      .riflesso-acqua,
+      .bolla {
+        animation: none !important;
       }
     }
 
@@ -503,7 +905,9 @@
 
 </head>
 
+
 <body>
+
 
   <script>
 
@@ -528,6 +932,9 @@
     id="pagina"
   >
 
+
+    <!-- LOGO -->
+
     <div class="brand">
 
       <img
@@ -540,17 +947,22 @@
     </div>
 
 
+    <!-- MESSAGGIO CENTRALE -->
+
     <section class="centro">
 
       <div class="eyebrow">
         La tua opinione conta
       </div>
 
+
       <div class="messaggio-box">
 
         <p class="messaggio">
+
           Il tuo feedback ci aiuta a fare sempre meglio.
-          Dicci la tua! Ti bastano 3 secondi!
+          Dici la tua! Bastano 2 secondi!
+
         </p>
 
       </div>
@@ -558,7 +970,10 @@
     </section>
 
 
+    <!-- RECENSIONE -->
+
     <section class="recensione">
+
 
       <a
         id="bottone-google"
@@ -567,8 +982,59 @@
         target="_blank"
         rel="noopener noreferrer"
       >
-        Recensione Google
+
+        <!-- ONDE -->
+
+        <span
+          class="onda"
+          aria-hidden="true"
+        ></span>
+
+        <span
+          class="onda-secondaria"
+          aria-hidden="true"
+        ></span>
+
+
+        <!-- BOLLE -->
+
+        <span
+          class="bolla bolla-1"
+          aria-hidden="true"
+        ></span>
+
+        <span
+          class="bolla bolla-2"
+          aria-hidden="true"
+        ></span>
+
+        <span
+          class="bolla bolla-3"
+          aria-hidden="true"
+        ></span>
+
+        <span
+          class="bolla bolla-4"
+          aria-hidden="true"
+        ></span>
+
+
+        <!-- RIFLESSO -->
+
+        <span
+          class="riflesso-acqua"
+          aria-hidden="true"
+        ></span>
+
+
+        <!-- TESTO -->
+
+        <span class="testo-bottone">
+          Recensione Google
+        </span>
+
       </a>
+
 
       <div
         class="stelle"
@@ -580,9 +1046,14 @@
     </section>
 
 
+    <!-- FOOTER -->
+
     <footer>
+
       Powered by <strong>Tapreputa</strong>
+
     </footer>
+
 
   </main>
 
@@ -593,24 +1064,30 @@
       configurazione.nomeAttivita +
       " | Recensioni";
 
+
     const logo =
       document.getElementById("logo");
+
 
     logo.src =
       configurazione.logo;
 
+
     logo.alt =
       configurazione.nomeAttivita;
+
 
     const bottoneGoogle =
       document.getElementById(
         "bottone-google"
       );
 
+
     bottoneGoogle.href =
       configurazione.linkRecensioni;
 
   </script>
+
 
 </body>
 
