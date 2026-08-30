@@ -12,6 +12,7 @@
   <title>Pagina recensioni</title>
 
   <style>
+
     :root {
       --oro: #ffc107;
       --testo: #ffffff;
@@ -35,14 +36,24 @@
       color: var(--testo);
     }
 
+    /* =========================================================
+       PAGINA PRINCIPALE
+       ========================================================= */
+
     .pagina {
       position: relative;
+
       width: 100%;
+
       min-height: 100vh;
       min-height: 100dvh;
 
       display: grid;
-      grid-template-rows: auto 1fr auto;
+
+      grid-template-rows:
+        auto
+        1fr
+        auto;
 
       overflow: hidden;
 
@@ -52,28 +63,115 @@
         86px;
 
       background-image: url("./sfondo-beach.png");
+
       background-position: center center;
       background-repeat: no-repeat;
       background-size: cover;
     }
 
+
+    /* =========================================================
+       LOGO
+       ========================================================= */
+
     .brand {
       position: relative;
+
       justify-self: center;
+
       width: min(61vw, 335px);
+
       z-index: 2;
+
+      isolation: isolate;
     }
+
+    /*
+      Bagliore delicato dietro il logo.
+      Non modifica il file.
+    */
+
+    .brand::before {
+      content: "";
+
+      position: absolute;
+
+      inset: 15% 10%;
+
+      z-index: -1;
+
+      border-radius: 50%;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.20) 0%,
+          rgba(255, 255, 255, 0.08) 38%,
+          transparent 75%
+        );
+
+      filter: blur(22px);
+    }
+
 
     .logo {
       display: block;
+
       width: 100%;
       height: auto;
-      filter: none;
+
+      /*
+        DISSOLVENZA DEI BORDI.
+
+        Il centro resta perfettamente visibile,
+        mentre i bordi del PNG vengono gradualmente
+        resi trasparenti.
+      */
+
+      -webkit-mask-image:
+        radial-gradient(
+          ellipse 78% 75% at center,
+          #000 42%,
+          rgba(0, 0, 0, 0.98) 58%,
+          rgba(0, 0, 0, 0.72) 72%,
+          rgba(0, 0, 0, 0.30) 84%,
+          transparent 100%
+        );
+
+      mask-image:
+        radial-gradient(
+          ellipse 78% 75% at center,
+          #000 42%,
+          rgba(0, 0, 0, 0.98) 58%,
+          rgba(0, 0, 0, 0.72) 72%,
+          rgba(0, 0, 0, 0.30) 84%,
+          transparent 100%
+        );
+
+      /*
+        Ombra morbida.
+      */
+
+      filter:
+        drop-shadow(
+          0 10px 22px rgba(0, 0, 0, 0.22)
+        );
+
+      /*
+        Il logo resta cromaticamente originale.
+      */
+
       mix-blend-mode: normal;
     }
 
+
+    /* =========================================================
+       BLOCCO CENTRALE
+       ========================================================= */
+
     .centro {
       position: relative;
+
       z-index: 2;
 
       align-self: center;
@@ -81,36 +179,59 @@
 
       width: min(100%, 780px);
 
-      margin-top: -2vh;
+      /*
+        Alziamo leggermente tutto il blocco centrale.
+      */
+
+      margin-top: -5vh;
 
       text-align: center;
     }
 
+
+    /* =========================================================
+       "LA TUA OPINIONE CONTA"
+       ========================================================= */
+
     .eyebrow {
       display: flex;
+
       align-items: center;
       justify-content: center;
 
       gap: 12px;
 
-      margin-bottom: 18px;
+      /*
+        Più spazio rispetto al box sottostante.
+      */
+
+      margin-bottom: 20px;
 
       color: #ffffff;
 
-      font-size: 0.72rem;
-      font-weight: 700;
+      /*
+        Testo aumentato.
+      */
 
-      letter-spacing: 0.22em;
+      font-size: 0.92rem;
+
+      font-weight: 800;
+
+      letter-spacing: 0.20em;
+
       text-transform: uppercase;
 
-      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.65);
+      text-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.78),
+        0 0 16px rgba(0, 0, 0, 0.22);
     }
+
 
     .eyebrow::before,
     .eyebrow::after {
       content: "";
 
-      width: 44px;
+      width: 48px;
       height: 1px;
 
       background:
@@ -121,22 +242,30 @@
         );
     }
 
+
     .eyebrow::after {
       transform: scaleX(-1);
     }
+
+
+    /* =========================================================
+       MESSAGGIO
+       ========================================================= */
 
     .messaggio-box {
       position: relative;
 
       border-radius: 25px;
 
-      background: rgba(0, 0, 0, 0.46);
+      background:
+        rgba(0, 0, 0, 0.46);
 
       box-shadow:
         0 14px 34px rgba(0, 0, 0, 0.26);
 
       overflow: hidden;
     }
+
 
     .messaggio {
       position: relative;
@@ -152,11 +281,17 @@
         clamp(1.3rem, 3.2vw, 2.15rem);
 
       line-height: 1.32;
+
       letter-spacing: 0.01em;
 
       text-shadow:
         0 2px 7px rgba(0, 0, 0, 0.5);
     }
+
+
+    /* =========================================================
+       RECENSIONE
+       ========================================================= */
 
     .recensione {
       position: relative;
@@ -166,7 +301,9 @@
       justify-self: center;
 
       display: flex;
+
       flex-direction: column;
+
       align-items: center;
 
       gap: 19px;
@@ -175,16 +312,22 @@
         clamp(44px, 7vh, 78px);
     }
 
+
+    /* =========================================================
+       PULSANTE GOOGLE
+       ========================================================= */
+
     .bottone-google {
       position: relative;
 
       min-width:
-        min(82vw, 312px);
+        min(86vw, 340px);
 
       padding:
-        22px 62px;
+        22px 42px;
 
       border: none;
+
       border-radius: 16px;
 
       background: #ffffff;
@@ -196,21 +339,28 @@
         0 0 0 1px rgba(255, 255, 255, 0.72);
 
       font-size:
-        clamp(1.4rem, 3vw, 1.7rem);
+        clamp(1.35rem, 3vw, 1.65rem);
 
       font-weight: 800;
 
-      letter-spacing: 0.03em;
+      letter-spacing: 0.02em;
 
       text-align: center;
+
       text-decoration: none;
 
       -webkit-tap-highlight-color: transparent;
     }
 
+
     .bottone-google:active {
       transform: scale(0.98);
     }
+
+
+    /* =========================================================
+       STELLE
+       ========================================================= */
 
     .stelle {
       position: relative;
@@ -230,6 +380,11 @@
         0 4px 10px rgba(0, 0, 0, 0.40);
     }
 
+
+    /* =========================================================
+       FOOTER
+       ========================================================= */
+
     footer {
       position: absolute;
 
@@ -238,27 +393,43 @@
       right:
         clamp(20px, 6vw, 86px);
 
-      bottom: 18px;
+      /*
+        Footer alzato rispetto a prima.
+      */
 
-      color: rgba(255, 255, 255, 0.82);
+      bottom: 30px;
 
-      font-size: 0.92rem;
+      color: rgba(255, 255, 255, 0.92);
 
-      letter-spacing: 0.04em;
+      /*
+        Dimensione aumentata.
+      */
+
+      font-size: 1rem;
+
+      font-weight: 500;
+
+      letter-spacing: 0.03em;
 
       text-align: right;
 
       text-shadow:
-        0 2px 6px rgba(0, 0, 0, 0.75);
+        0 2px 8px rgba(0, 0, 0, 0.85);
     }
+
 
     footer strong {
       color: #ffffff;
 
-      font-size: 1rem;
+      font-size: 1.12rem;
 
-      font-weight: 700;
+      font-weight: 800;
     }
+
+
+    /* =========================================================
+       SMARTPHONE VERTICALE
+       ========================================================= */
 
     @media
     (max-width: 600px)
@@ -271,42 +442,59 @@
         padding:
           max(18px, env(safe-area-inset-top))
           18px
-          max(76px, env(safe-area-inset-bottom));
+          max(82px, env(safe-area-inset-bottom));
 
-        background-position: center center;
+        background-position:
+          center center;
       }
+
 
       .brand {
         width:
           min(61vw, 285px);
       }
 
+
       .centro {
         width: 100%;
-        margin-top: -1vh;
+
+        /*
+          Più alto rispetto alla versione precedente.
+        */
+
+        margin-top: -5vh;
       }
 
+
       .eyebrow {
-        margin-bottom: 14px;
+        margin-bottom: 18px;
 
         gap: 9px;
 
-        font-size: 0.68rem;
+        /*
+          Grandezza aumentata su mobile.
+        */
 
-        letter-spacing: 0.18em;
+        font-size: 0.82rem;
+
+        letter-spacing: 0.16em;
       }
+
 
       .eyebrow::before,
       .eyebrow::after {
-        width: 32px;
+        width: 35px;
       }
+
 
       .messaggio-box {
         border-radius: 21px;
       }
 
+
       .messaggio {
-        padding: 21px 20px;
+        padding:
+          21px 20px;
 
         font-size:
           clamp(
@@ -318,21 +506,27 @@
         line-height: 1.32;
       }
 
+
       .recensione {
         gap: 16px;
+
         margin-bottom: 44px;
       }
 
+
       .bottone-google {
         width:
-          min(82vw, 312px);
+          min(88vw, 340px);
 
         min-width: 0;
 
-        padding: 19px 36px;
+        padding:
+          19px 24px;
 
-        font-size: 1.42rem;
+        font-size:
+          1.34rem;
       }
+
 
       .stelle {
         font-size:
@@ -343,22 +537,37 @@
           );
       }
 
+
       footer {
         right: 18px;
 
+        /*
+          Più alto.
+        */
+
         bottom:
           max(
-            14px,
+            27px,
             env(safe-area-inset-bottom)
           );
 
-        font-size: 0.74rem;
+        /*
+          Dimensione aumentata.
+        */
+
+        font-size: 0.90rem;
       }
 
+
       footer strong {
-        font-size: 0.82rem;
+        font-size: 1rem;
       }
     }
+
+
+    /* =========================================================
+       TELEFONI CON SCHERMO PIÙ BASSO
+       ========================================================= */
 
     @media
     (max-width: 600px)
@@ -371,77 +580,143 @@
         padding-top: 12px;
       }
 
+
       .brand {
         width:
           min(48vw, 220px);
       }
 
+
       .centro {
-        margin-top: 0;
+        margin-top: -2vh;
       }
 
+
       .eyebrow {
-        margin-bottom: 9px;
+        margin-bottom: 10px;
+
+        font-size: 0.76rem;
       }
+
 
       .messaggio {
         padding: 16px 18px;
+
         font-size: 1.08rem;
       }
 
+
       .recensione {
         gap: 10px;
+
         margin-bottom: 35px;
       }
 
+
       .bottone-google {
-        padding: 15px 38px;
-        font-size: 1.25rem;
+        padding: 15px 26px;
+
+        font-size: 1.22rem;
       }
+
 
       .stelle {
         font-size: 2rem;
       }
+
+
+      footer {
+        bottom: 22px;
+
+        font-size: 0.82rem;
+      }
+
+
+      footer strong {
+        font-size: 0.90rem;
+      }
     }
+
   </style>
+
 </head>
+
 
 <body>
 
+
   <script>
+
     const configurazione = {
-      logo: "./logo.png",
-      nomeAttivita: "Miramare Sea Restaurant",
-      linkRecensioni: "https://search.google.com/local/writereview?placeid=ChIJ0dDdYjPqGRMRM64sgFVBjLE"
+
+      logo:
+        "./logo.png",
+
+      nomeAttivita:
+        "Miramare Sea Restaurant",
+
+      linkRecensioni:
+        "https://search.google.com/local/writereview?placeid=ChIJ0dDdYjPqGRMRM64sgFVBjLE"
+
     };
+
   </script>
 
-  <main class="pagina" id="pagina">
+
+
+  <main
+    class="pagina"
+    id="pagina"
+  >
+
+
+    <!-- LOGO -->
 
     <div class="brand">
+
       <img
         id="logo"
         class="logo"
         src=""
         alt=""
       >
+
     </div>
+
+
+
+    <!-- MESSAGGIO CENTRALE -->
 
     <section class="centro">
 
+
       <div class="eyebrow">
+
         La tua opinione conta
+
       </div>
 
+
       <div class="messaggio-box">
+
         <p class="messaggio">
-          La tua esperienza per noi conta, lascia una recensione.
+
+          La tua esperienza per noi conta,
+          lascia una recensione.
+
         </p>
+
       </div>
+
 
     </section>
 
+
+
+    <!-- RECENSIONE -->
+
     <section class="recensione">
+
 
       <a
         id="bottone-google"
@@ -450,43 +725,73 @@
         target="_blank"
         rel="noopener noreferrer"
       >
-        Google
+
+        Recensione Google
+
       </a>
+
 
       <div
         class="stelle"
         aria-label="Cinque stelle"
       >
+
         ★★★★★
+
       </div>
+
 
     </section>
 
+
+
+    <!-- FOOTER -->
+
     <footer>
-      Progetto e sviluppo by <strong>TAPREPUTA</strong>
+
+      Powered by
+
+      <strong>
+        Tapreputa
+      </strong>
+
     </footer>
+
 
   </main>
 
+
+
   <script>
+
     document.title =
-      configurazione.nomeAttivita + " | Recensioni";
+      configurazione.nomeAttivita +
+      " | Recensioni";
+
 
     const logo =
       document.getElementById("logo");
 
+
     logo.src =
       configurazione.logo;
+
 
     logo.alt =
       configurazione.nomeAttivita;
 
+
     const bottoneGoogle =
-      document.getElementById("bottone-google");
+      document.getElementById(
+        "bottone-google"
+      );
+
 
     bottoneGoogle.href =
       configurazione.linkRecensioni;
+
   </script>
+
 
 </body>
 
